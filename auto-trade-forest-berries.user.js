@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Auto buy forest-berries
 // @namespace    https://github.com/KhanhhNe/
-// @version      1.2.8
+// @version      1.2.9
 // @description  Auto trade chợ đen forest-berries
 // @author       KhanhhNe
 // @run-at       document-start
@@ -135,7 +135,7 @@ function buy_stuff() {
 }
 
 
-(function () {
+document.onload = function () {
     'use strict';
 
     if (has_captcha()) {
@@ -143,4 +143,4 @@ function buy_stuff() {
     } else {
         buy_stuff()
     }
-})();
+};
