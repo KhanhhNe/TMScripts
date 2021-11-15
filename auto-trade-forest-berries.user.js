@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Auto buy forest-berries
 // @namespace    https://github.com/KhanhhNe/
-// @version      1.2.7
+// @version      1.2.8
 // @description  Auto trade chợ đen forest-berries
 // @author       KhanhhNe
 // @include      *forest-berries.biz/account/market
