@@ -4,6 +4,7 @@
 // @version      1.2.8
 // @description  Auto trade chợ đen forest-berries
 // @author       KhanhhNe
+// @run-at       document-start
 // @include      *forest-berries.biz/account/market
 // @icon         https://www.google.com/s2/favicons?domain=forest-berries.biz
 // @grant        none
