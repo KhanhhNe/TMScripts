@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Auto buy forest-berries
 // @namespace    https://github.com/KhanhhNe/
-// @version      1.2.9
+// @version      1.2.10
 // @description  Auto trade chợ đen forest-berries
 // @author       KhanhhNe
 // @run-at       document-start
@@ -21,7 +21,7 @@
 
 // Tự reload trong trường hợp code chính không reload được vì gặp lỗi (ưu tiên)
 setTimeout(() => window.location.reload(), 10000)
-// Reload bằng cách chuyển đến link hiện tại (dự phòng). Sở dĩ cách này 
+// Reload bằng cách chuyển đến link hiện tại (dự phòng). Sở dĩ cách này
 // chỉ là dự phòng vì làm thế liên tục sẽ làm browser lag hơn khi lịch sử
 // sẽ tràn ngập /account/market, /account/market,...
 setTimeout(() => window.location.replace(window.location.href), 15000)
@@ -120,13 +120,9 @@ function buy_stuff() {
         form.set('item', inp.value)  // Đặt item thành giá trị của input
 
         // Submit form
-        $.ajax({
-            url: form.action,
-            data: form,
-            processData: false,
-            contentType: false,
-            type: 'POST',
-            success: function(){}
+        fetch('/account/market', {
+            method: 'post',
+            body: new URLSearchParams(form)
         })
         requested += 1
     }
@@ -134,10 +130,7 @@ function buy_stuff() {
     setTimeout(() => window.location.reload(), (requested || 1) * (Math.random() * 0.4 + 1.8) * 1000)  // Reload trang để xem kết quả
 }
 
-
-document.onload = function () {
-    'use strict';
-
+window.onload = function () {
     if (has_captcha()) {
         solve_captcha()
     } else {
